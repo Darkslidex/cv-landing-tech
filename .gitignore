@@ -1,0 +1,8 @@
+node_modules/
+.env
+cv_print.html
+cv_print_full.html
+Félix*.pdf
+avatar.png
+avatar.jpg
+cv.txt

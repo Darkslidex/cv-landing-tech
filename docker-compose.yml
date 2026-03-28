@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  cv-landing:
+    build: .
+    container_name: cv-landing-nginx
+    ports:
+      - "80:80"
+    restart: always
+    environment:
+      - NODE_ENV=production
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - web-network
+
+networks:
+  web-network:
+    driver: bridge

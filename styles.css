@@ -1,0 +1,351 @@
+:root {
+    --bg-main: #020202;
+    --surface-dark: #0D0D0D;
+    --accent-orange: #FF6B2B;
+    --accent-blue: #3B82F6;
+    --text-primary: #F0F0F0;
+    --text-muted: #888888;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* ================== HERO ================== */
+.hero {
+    padding: 100px 0 60px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #FFFFFF 0%, #888888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 24px;
+}
+
+.hero-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-weight: 400;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+/* CTA Buttons */
+.hero-cta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--text-primary);
+    color: var(--bg-main);
+    border: 1px solid var(--text-primary);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--text-primary);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-muted);
+    transition: 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+    background: rgba(255,255,255,0.05);
+}
+
+/* ================== BENTO GRID ================== */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 24px;
+    padding-bottom: 100px;
+}
+
+.bento-card {
+    background-color: var(--surface-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-4px);
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.card-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent-orange);
+    margin-bottom: 30px;
+}
+
+/* Specific Cards Setup */
+.card-left {
+    grid-column: 1 / 2;
+}
+
+.card-center {
+    grid-column: 2 / 4;
+}
+
+.card-bottom {
+    grid-column: 1 / 4;
+}
+
+/* Glow effects inside cards */
+.card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.glow-orange {
+    background: radial-gradient(circle at 80% 20%, rgba(255, 107, 43, 0.07) 0%, transparent 40%);
+}
+
+.glow-blue {
+    background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.07) 0%, transparent 40%);
+}
+
+/* Content Lists */
+.card-content h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #FFF;
+    margin-bottom: 6px;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.item {
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+}
+.item:last-child { margin-bottom: 0; }
+
+/* El Laboratorio - List Layout */
+.lab-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.lab-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.lab-bullet {
+    width: 8px;
+    height: 8px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+    transition: background 0.3s;
+}
+
+.lab-item:hover .lab-bullet {
+    background: var(--accent-blue);
+    box-shadow: 0 0 10px var(--accent-blue);
+}
+
+/* Hover Interactivity (Code Reveal) */
+.glass-card {
+    backdrop-filter: blur(10px);
+    background-color: rgba(13, 13, 13, 0.85);
+}
+
+.glass-card:hover {
+    border-color: rgba(59, 130, 246, 0.3); /* Blue subtle glow */
+}
+
+.card-left:hover {
+    border-color: rgba(255, 107, 43, 0.3); /* Orange subtle glow */
+}
+
+.code-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: rgba(59, 130, 246, 0.15); /* Very faint blue text */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.glass-card:hover .code-bg {
+    opacity: 1;
+}
+
+/* El Puente Terminal Design */
+.terminal-card {
+    background-color: #050505;
+    border: 1px solid #222;
+    padding: 0;
+}
+
+.terminal-header {
+    background-color: #111;
+    padding: 12px 20px;
+    border-bottom: 1px solid #222;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.dot.close { background-color: #FF5F56; }
+.dot.min { background-color: #FFBD2E; }
+.dot.max { background-color: #27C93F; }
+
+.terminal-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #666;
+    margin-left: 12px;
+}
+
+.terminal-body {
+    padding: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    line-height: 1.8;
+}
+
+.prompt {
+    color: var(--accent-orange);
+    margin-right: 12px;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: var(--text-primary);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hidden-text {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .card-left, .card-center, .card-bottom {
+        grid-column: 1 / -1;
+    }
+    .lab-list {
+        grid-template-columns: 1fr;
+    }
+    .code-bg {
+        display: none;
+    }
+}
