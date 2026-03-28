@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador CV - Félix Lezama Mendoza</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #020202;
+            --surface-dark: #0D0D0D;
+            --text-primary: #F0F0F0;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-blue: #3B82F6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Evitar doble scroll */
+        }
+
+        /* HEADER SUPERIOR */
+        .viewer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: var(--surface-dark);
+            border-bottom: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-title span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-blue);
+            font-weight: 400;
+        }
+
+        /* BOTONES */
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-main);
+            border: 1px solid var(--text-primary);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--text-primary);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        /* I-FRAME DEL PDF */
+        .pdf-container {
+            flex-grow: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #050505;
+        }
+
+        .pdf-container object {
+            width: 100%;
+            height: 100%;
+            border: none;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="viewer-header">
+        <div class="header-title">
+            Félix Lezama Mendoza <span>~/docs/CV_2026.pdf</span>
+        </div>
+        <div class="header-actions">
+            <!-- Botón Volver -->
+            <a href="index.html" class="btn btn-outline" title="Volver al Inicio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Volver
+            </a>
+            
+            <!-- Botón Descargar (Forzado) -->
+            <a href="cv_felix_lezama.pdf" download="Felix_Lezama_CV.pdf" class="btn btn-primary" title="Descargar como Archivo local">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Descargar PDF
+            </a>
+        </div>
+    </header>
+
+    <main class="pdf-container">
+        <!-- Objeto Nativo Visor de PDF -->
+        <object data="cv_felix_lezama.pdf" type="application/pdf">
+            <!-- Fallback por si el navegador bloquea la previsualizacion -->
+            <p style="padding: 2rem; text-align: center;">Tu navegador no soporta visualización nativa de PDF. <a href="cv_felix_lezama.pdf" download style="color:var(--accent-blue);">Descárgalo directamente aquí.</a></p>
+        </object>
+    </main>
+
+</body>
+</html>
