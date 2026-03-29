@@ -5,7 +5,7 @@ services:
     build: .
     container_name: cv-landing-nginx
     ports:
-      - "80:80"
+      - "8880:80"
     restart: always
     environment:
       - NODE_ENV=production
@@ -15,8 +15,20 @@ services:
         max-size: "10m"
         max-file: "3"
     networks:
+      - coolify
       - web-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=coolify"
+      - "traefik.http.routers.cv-landing.rule=Host(`micv.techcam.com.ar`)"
+      - "traefik.http.routers.cv-landing.entrypoints=https"
+      - "traefik.http.routers.cv-landing.tls=true"
+      - "traefik.http.services.cv-landing.loadbalancer.server.port=80"
+      - "traefik.http.routers.cv-landing-http.rule=Host(`micv.techcam.com.ar`)"
+      - "traefik.http.routers.cv-landing-http.entrypoints=http"
 
 networks:
+  coolify:
+    external: true
   web-network:
     driver: bridge

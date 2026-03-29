@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizador CV - Félix Lezama Mendoza</title>
+    <title>CV Viewer - Félix Lezama Mendoza</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -27,10 +27,9 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Evitar doble scroll */
+            overflow: hidden;
         }
 
-        /* HEADER SUPERIOR */
         .viewer-header {
             display: flex;
             justify-content: space-between;
@@ -56,7 +55,6 @@
             font-weight: 400;
         }
 
-        /* BOTONES */
         .header-actions {
             display: flex;
             gap: 15px;
@@ -119,25 +117,23 @@
 
     <header class="viewer-header">
         <div class="header-title">
-            Félix Lezama Mendoza <span>~/docs/CV_2026.pdf</span>
+            Félix Lezama Mendoza <span>~/docs/CV_EN_2026</span>
         </div>
         <div class="header-actions">
-            <!-- Botón Volver -->
-            <a href="index.html" class="btn btn-outline" title="Volver al Inicio">
+            <a href="index.html" class="btn btn-outline" title="Back to Home">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                Volver
+                Back
             </a>
-            
-            <!-- Botón Descargar (Forzado) -->
-            <a href="cv_felix_lezama.pdf" download="Felix_Lezama_CV.pdf" class="btn btn-primary" title="Descargar como Archivo local">
+
+            <a href="cv_felix_lezama.pdf" download="Felix_Lezama_CV.pdf" class="btn btn-primary" title="Download as local file">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                Descargar PDF
+                Download PDF
             </a>
         </div>
     </header>
 
     <main class="cv-container">
-        <iframe src="cv_print_full.html" title="Félix Lezama — CV"></iframe>
+        <iframe src="cv_print_full_en.html" title="Félix Lezama — CV English"></iframe>
     </main>
 
 </body>

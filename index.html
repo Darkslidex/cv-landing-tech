@@ -4,38 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Félix Lezama Mendoza | Portfolio</title>
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Portfolio de Félix Lezama Mendoza. Administrador, Especialista en Seguridad y Desarrollador de IA.">
-    
+
+    <!-- Open Graph -->
+    <meta property="og:image" content="https://micv.techcam.com.ar/preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:title" content="Félix Lezama — AI Automation Specialist">
+    <meta property="og:description" content="20 años en infraestructura crítica + automatización con IA. Python · n8n · Power BI · Remote-ready.">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
+
+    <!-- Language Toggle -->
+    <button id="lang-toggle" aria-label="Switch language">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span class="lang-opt" id="lang-es">ES</span>
+        <span class="lang-divider">|</span>
+        <span class="lang-opt" id="lang-en">EN</span>
+    </button>
+
     <div class="container">
-        
+
         <!-- Hero Section -->
         <header class="hero">
             <h1 class="hero-title">FÉLIX LEZAMA<br>MENDOZA</h1>
-            <h2 class="hero-subtitle">Administrador por formación | Especialista en Seguridad por trayectoria | Desarrollador de IA por convicción.</h2>
-            
+            <h2 class="hero-subtitle" data-i18n="hero-subtitle">Administrador por formación | Especialista en Seguridad por trayectoria | Desarrollador de IA por convicción.</h2>
+
             <div class="hero-cta">
                 <a href="https://www.linkedin.com/in/felix-lezama" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                    Conectar en LinkedIn
+                    <span data-i18n="btn-linkedin">Conectar en LinkedIn</span>
                 </a>
                 <a href="mailto:felixlezamam@gmail.com" class="btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    Escríbeme
+                    <span data-i18n="btn-email">Escríbeme</span>
                 </a>
-                <a href="viewer.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Ver Currículum Clásico">
+                <a href="viewer.html" data-href-es="viewer.html" data-href-en="viewer_en.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Ver Currículum Clásico">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    Ver CV Clásico
+                    <span data-i18n="btn-cv">Ver CV Clásico</span>
                 </a>
                 <a href="https://github.com/Darkslidex" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
@@ -45,28 +61,28 @@
 
         <!-- Bento Grid Layer -->
         <main class="bento-grid">
-            
+
             <!-- Block 1: El Cimiento -->
             <section class="bento-card card-left">
                 <div class="card-glow glow-blue"></div>
-                <h3 class="card-title">1. El Cimiento:<br>Gestión y Escala</h3>
-                <p class="card-subtitle">(Pasado y Presente)</p>
+                <h3 class="card-title" data-i18n="card1-title">1. El Cimiento:<br>Gestión y Escala</h3>
+                <p class="card-subtitle" data-i18n="card1-subtitle">(Pasado y Presente)</p>
                 <div class="card-content">
                     <div class="item">
-                        <h4>Visión de Negocio</h4>
-                        <p>Licenciado en Administración de Empresas con capacidad para transformar necesidades operativas en infraestructuras tecnológicas rentables.</p>
+                        <h4 data-i18n="item1-h4">Visión de Negocio</h4>
+                        <p data-i18n="item1-p">Licenciado en Administración de Empresas con capacidad para transformar necesidades operativas en infraestructuras tecnológicas rentables.</p>
                     </div>
                     <div class="item">
-                        <h4>Gestión de Proyectos Críticos</h4>
-                        <p>Lideré el diseño y ejecución del Centro de Monitoreo de Seguridad Única, coordinando la visualización de más de 900 cámaras y un videowall de 48 monitores.</p>
+                        <h4 data-i18n="item2-h4">Gestión de Proyectos Críticos</h4>
+                        <p data-i18n="item2-p">Lideré el diseño y ejecución del Centro de Monitoreo de Seguridad Única, coordinando la visualización de más de 900 cámaras y un videowall de 48 monitores.</p>
                     </div>
                     <div class="item">
-                        <h4>Consultoría Estratégica</h4>
-                        <p>Especialista en seguridad perimetral para barrios privados de alta gama y grandes corporaciones, gestionando desde la auditoría técnica hasta la elaboración de pliegos licitatorios.</p>
+                        <h4 data-i18n="item3-h4">Consultoría Estratégica</h4>
+                        <p data-i18n="item3-p">Especialista en seguridad perimetral para barrios privados de alta gama y grandes corporaciones, gestionando desde la auditoría técnica hasta la elaboración de pliegos licitatorios.</p>
                     </div>
                     <div class="item">
-                        <h4>Escalabilidad</h4>
-                        <p>Coordiné la migración tecnológica de más de 80 sedes a nivel nacional, estandarizando procesos y optimizando costos de mantenimiento.</p>
+                        <h4 data-i18n="item4-h4">Escalabilidad</h4>
+                        <p data-i18n="item4-p">Coordiné la migración tecnológica de más de 80 sedes a nivel nacional, estandarizando procesos y optimizando costos de mantenimiento.</p>
                     </div>
                 </div>
             </section>
@@ -74,44 +90,42 @@
             <!-- Block 2: El Laboratorio -->
             <section class="bento-card card-center glass-card" id="laboratorio-card">
                 <div class="card-glow glow-orange"></div>
-                
-                <!-- Python Code Background Fragment (Micro-interaction) -->
 
                 <div class="card-header">
-                    <h3 class="card-title">2. El Laboratorio:<br>Exploración e IA</h3>
-                    <p class="card-subtitle">(Los últimos 8 meses)</p>
+                    <h3 class="card-title" data-i18n="card2-title">2. El Laboratorio:<br>Exploración e IA</h3>
+                    <p class="card-subtitle" data-i18n="card2-subtitle">(Los últimos 8 meses)</p>
                 </div>
-                
+
                 <div class="card-content lab-list">
                     <div class="lab-item" data-tech="python">
                         <div class="lab-bullet"></div>
                         <div class="lab-text">
-                            <h4>Investigación en Arquitectura (PSIM Bunker)</h4>
-                            <p>Ejercicio de práctica profunda sobre Arquitectura Hexagonal en Python, diseñado para entender cómo construir sistemas de seguridad desacoplados, resilientes y escalables.</p>
+                            <h4 data-i18n="lab1-h4">Investigación en Arquitectura (PSIM Bunker)</h4>
+                            <p data-i18n="lab1-p">Ejercicio de práctica profunda sobre Arquitectura Hexagonal en Python, diseñado para entender cómo construir sistemas de seguridad desacoplados, resilientes y escalables.</p>
                         </div>
                     </div>
-                    
+
                     <div class="lab-item" data-tech="cloud">
                         <div class="lab-bullet"></div>
                         <div class="lab-text">
-                            <h4>Pensamiento de Sistemas (SGAI)</h4>
-                            <p>Mi proyecto más personal, donde aplico logística de administración para optimizar la gestión alimentaria en la nube, automatizando decisiones diarias mediante flujos de datos inteligentes.</p>
+                            <h4 data-i18n="lab2-h4">Pensamiento de Sistemas (SGAI)</h4>
+                            <p data-i18n="lab2-p">Mi proyecto más personal, donde aplico logística de administración para optimizar la gestión alimentaria en la nube, automatizando decisiones diarias mediante flujos de datos inteligentes.</p>
                         </div>
                     </div>
-                    
+
                     <div class="lab-item" data-tech="etl">
                         <div class="lab-bullet"></div>
                         <div class="lab-text">
-                            <h4>Automatización de Vulnerabilidades</h4>
-                            <p>Desarrollo de scripts ETL experimentales para detectar fallos en dispositivos de seguridad electrónica, buscando proactivamente cerrar brechas antes de ser explotadas.</p>
+                            <h4 data-i18n="lab3-h4">Automatización de Vulnerabilidades</h4>
+                            <p data-i18n="lab3-p">Desarrollo de scripts ETL experimentales para detectar fallos en dispositivos de seguridad electrónica, buscando proactivamente cerrar brechas antes de ser explotadas.</p>
                         </div>
                     </div>
 
                     <div class="lab-item" data-tech="data">
                         <div class="lab-bullet"></div>
                         <div class="lab-text">
-                            <h4>Inteligencia de Mercado</h4>
-                            <p>Creación de un monitor autónomo de precios (Python + SQLite) integrado con Power BI, para transformar el caos de datos del mercado en tableros de decisión claros.</p>
+                            <h4 data-i18n="lab4-h4">Inteligencia de Mercado</h4>
+                            <p data-i18n="lab4-p">Creación de un monitor autónomo de precios (Python + SQLite) integrado con Power BI, para transformar el caos de datos del mercado en tableros de decisión claros.</p>
                         </div>
                     </div>
                 </div>
@@ -123,14 +137,17 @@
                     <span class="dot close"></span>
                     <span class="dot min"></span>
                     <span class="dot max"></span>
-                    <span class="terminal-title">3. El Puente: ¿Hacia dónde voy?</span>
+                    <span class="terminal-title" data-i18n="terminal-title">3. El Puente: ¿Hacia dónde voy?</span>
                 </div>
                 <div class="terminal-body" id="terminal-body">
                     <span class="prompt">~ /vision $</span>
                     <span id="typewriter-text"></span><span class="cursor">_</span>
                 </div>
-                <div class="hidden-text" id="hidden-vision">
+                <div class="hidden-text" id="hidden-vision-es">
 "Mi objetivo no es solo implementar tecnología, sino orquestarla. Estoy fusionando 20 años de experiencia en gestión de activos físicos con las capacidades de la IA generativa y la automatización (n8n, Python) para crear soluciones de eficiencia operativa que no dependan de la presencialidad."
+                </div>
+                <div class="hidden-text" id="hidden-vision-en">
+"My goal is not just to implement technology — but to orchestrate it. I'm merging 20 years of physical asset management experience with generative AI and automation (n8n, Python) to create operational efficiency solutions that don't depend on physical presence."
                 </div>
             </section>
 
@@ -138,6 +155,6 @@
     </div>
 
     <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>

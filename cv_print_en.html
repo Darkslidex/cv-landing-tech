@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Curriculum Vitae - Félix Lezama Mendoza</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-main: #F0F0F0;
+            --text-muted: #A0A0A0;
+            --border-subtle: #222222;
+            --accent-blue: #3B82F6;
+            --accent-orange: #FF6B2B;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 12mm;
+            background-color: #0A0A0A;
+            display: flex;
+            flex-direction: column;
+            gap: 6mm;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .header {
+            display: flex;
+            gap: 6mm;
+            align-items: center;
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 6mm;
+            background: #111;
+        }
+
+        .avatar {
+            width: 32mm;
+            height: 32mm;
+            border-radius: 50%;
+            background-color: #1A1A1A;
+            border: 2px solid var(--border-subtle);
+            background-image: url('avatar.jpg');
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(255,107,43,0.1);
+        }
+
+        .header-info { flex-grow: 1; }
+
+        .name {
+            font-size: 26pt;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 2mm;
+            line-height: 1;
+        }
+
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            color: var(--accent-orange);
+            margin-bottom: 3mm;
+        }
+
+        .contact-bar {
+            display: flex;
+            gap: 4mm;
+            font-size: 8pt;
+            color: var(--text-muted);
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1mm;
+        }
+
+        .bento-container {
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            grid-template-rows: auto auto;
+            gap: 6mm;
+        }
+
+        .bento-box {
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 6mm;
+            background-color: #0D0D0D;
+        }
+
+        .section-title {
+            font-size: 14pt;
+            font-weight: 700;
+            margin-bottom: 4mm;
+            padding-bottom: 2mm;
+            border-bottom: 1px dotted var(--border-subtle);
+        }
+
+        .item { margin-bottom: 4mm; }
+        .item:last-child { margin-bottom: 0; }
+
+        .item-title {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1mm;
+        }
+
+        .item-desc {
+            font-size: 9pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .box-cimiento   { grid-column: 1 / 2; grid-row: 1 / 2; }
+        .box-laboratorio{ grid-column: 2 / 3; grid-row: 1 / 2; }
+        .box-puente     { grid-column: 1 / 3; grid-row: 2 / 3; align-self: end; }
+
+        .puente-quote {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10pt;
+            color: var(--accent-blue);
+            line-height: 1.6;
+            margin: 0;
+            padding: 4mm 6mm;
+            border-left: 3px solid var(--accent-blue);
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 4px;
+        }
+
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .page { border: none; width: 100%; height: 100vh; margin: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="avatar"></div>
+            <div class="header-info">
+                <h1 class="name">FÉLIX LEZAMA MENDOZA</h1>
+                <p class="subtitle">Business Manager by training | Infrastructure Specialist by experience | AI Developer by conviction.</p>
+                <div class="contact-bar">
+                    <div class="contact-item">📧 felixlezamam@gmail.com</div>
+                    <div class="contact-item">💼 linkedin.com/in/felix-lezama</div>
+                    <div class="contact-item">🌐 micv.techcam.com.ar</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="bento-container">
+
+            <!-- THE FOUNDATION -->
+            <section class="bento-box box-cimiento">
+                <h2 class="section-title">1. The Foundation: Management &amp; Scale</h2>
+
+                <div class="item">
+                    <h3 class="item-title">Business Vision</h3>
+                    <p class="item-desc">Business Administration degree with the ability to transform operational needs into profitable technological infrastructures.</p>
+                </div>
+
+                <div class="item">
+                    <h3 class="item-title">Critical Project Management</h3>
+                    <p class="item-desc">Led the design and execution of a Security Monitoring Center, coordinating the visualization of 900+ cameras and a 48-monitor videowall.</p>
+                </div>
+
+                <div class="item">
+                    <h3 class="item-title">Strategic Consulting</h3>
+                    <p class="item-desc">Perimeter security specialist for high-end private communities and large corporations, managing from technical audits to tender documentation.</p>
+                </div>
+
+                <div class="item">
+                    <h3 class="item-title">Scalability</h3>
+                    <p class="item-desc">Coordinated the technological migration of 80+ national branches, standardizing hardware, software, and operational processes.</p>
+                </div>
+            </section>
+
+            <!-- THE LAB -->
+            <section class="bento-box box-laboratorio">
+                <h2 class="section-title">2. The Lab: Exploration &amp; AI</h2>
+
+                <div class="item">
+                    <h3 class="item-title">Architecture Research (PSIM Bunker)</h3>
+                    <p class="item-desc">Deep practice exercise on Hexagonal Architecture in Python, designed to build decoupled, resilient, and scalable security systems.</p>
+                </div>
+
+                <div class="item">
+                    <h3 class="item-title">Systems Thinking (SGAI)</h3>
+                    <p class="item-desc">My most personal project — applying administrative logistics to optimize personal nutrition management in the cloud via intelligent data flows.</p>
+                </div>
+
+                <div class="item">
+                    <h3 class="item-title">Vulnerability Automation</h3>
+                    <p class="item-desc">Experimental ETL scripts for proactive detection of failures in electronic security devices, closing gaps before exploitation.</p>
+                </div>
+
+                <div class="item">
+                    <h3 class="item-title">Market Intelligence</h3>
+                    <p class="item-desc">Autonomous price monitor (Python + SQLite) integrated with Power BI, transforming market data chaos into clear decision dashboards.</p>
+                </div>
+            </section>
+
+            <!-- THE BRIDGE -->
+            <section class="bento-box box-puente">
+                <blockquote class="puente-quote">
+                    ~/ $ "My goal is not just to implement technology — but to orchestrate it. I'm merging 20 years of physical asset management experience with generative AI and automation (n8n, Python) to create operational efficiency solutions that don't depend on physical presence." _
+                </blockquote>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

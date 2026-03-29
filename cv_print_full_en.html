@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Curriculum Vitae - Félix Lezama Mendoza</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-main: #F0F0F0;
+            --text-muted: #A0A0A0;
+            --border-subtle: #222222;
+            --accent-blue: #3B82F6;
+            --accent-orange: #FF6B2B;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 10mm;
+            background-color: #0A0A0A;
+            display: flex;
+            flex-direction: column;
+            gap: 5mm;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            gap: 5mm;
+            align-items: center;
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 6mm;
+            background: #111;
+        }
+
+        .avatar {
+            width: 32mm;
+            height: 32mm;
+            border-radius: 50%;
+            background-color: #1A1A1A;
+            border: 2px solid var(--border-subtle);
+            background-image: url('avatar.jpg');
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(255,107,43,0.1);
+        }
+
+        .header-info { flex-grow: 1; }
+
+        .name {
+            font-size: 24pt;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 2mm;
+            line-height: 1;
+        }
+
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            color: var(--accent-orange);
+            margin-bottom: 3mm;
+        }
+
+        .summary {
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            margin-bottom: 3mm;
+            line-height: 1.4;
+        }
+
+        .contact-bar {
+            display: flex;
+            gap: 4mm;
+            font-size: 8pt;
+            color: var(--text-main);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* GRID / SECTIONS */
+        .bento-container {
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 5mm;
+        }
+
+        .bento-box {
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 5mm;
+            background-color: #0D0D0D;
+        }
+
+        .section-title {
+            font-size: 12pt;
+            font-weight: 700;
+            margin-bottom: 4mm;
+            padding-bottom: 2mm;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-main);
+        }
+
+        .item { margin-bottom: 4mm; }
+        .item:last-child { margin-bottom: 0; }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1mm;
+        }
+
+        .item-title {
+            font-size: 10pt;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .item-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            color: var(--text-muted);
+        }
+
+        .item-subtitle {
+            font-size: 9pt;
+            font-weight: 700;
+            color: #ccc;
+            margin-bottom: 2mm;
+        }
+
+        .item-desc {
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+            padding-left: 2mm;
+            border-left: 1px solid var(--border-subtle);
+        }
+
+        /* Lists */
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2mm;
+        }
+        
+        .skills-list li {
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+        .skills-list li::before {
+            content: "▹";
+            color: var(--accent-orange);
+            margin-right: 2mm;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Layout */
+        .col-left { display: flex; flex-direction: column; gap: 5mm; }
+        .col-right { display: flex; flex-direction: column; gap: 5mm; }
+
+        /* PRINT STYLES */
+        @media print {
+            @page { size: A4 portrait; margin: 0; background: #020202; }
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .page { border: none; width: 100%; min-height: 100vh; margin: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="avatar"></div>
+            <div class="header-info">
+                <h1 class="name">FÉLIX LEZAMA MENDOZA</h1>
+                <p class="subtitle">Electronic Security Project Manager &amp; AI Developer</p>
+                <p class="summary">
+                    20+ years leading the design, planning and execution of large-scale security solutions. Expert in transitioning physical systems to advanced technological platforms. Proven ability to build high-availability Monitoring Centers and develop automated solutions.
+                </p>
+                <div class="contact-bar">
+                    <div>[E] felixlezamam@gmail.com</div>
+                    <div>[T] 1162132462</div>
+                    <div>[L] linkedin.com/in/felix-lezama</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- BENTO CONTENT -->
+        <main class="bento-container">
+            
+            <!-- LEFT COLUMN (Skills & Education) -->
+            <div class="col-left">
+                <section class="bento-box">
+                    <h2 class="section-title">Core Skills</h2>
+                    <ul class="skills-list">
+                        <li>Security Architecture</li>
+                        <li>Strategic Planning</li>
+                        <li>Problem Solving</li>
+                        <li>Critical Decision-Making</li>
+                        <li>Deadline Management</li>
+                        <li>AI Development (Python)</li>
+                        <li>ETL &amp; Automation (n8n)</li>
+                        <li>Technology Leadership</li>
+                    </ul>
+                </section>
+
+                <section class="bento-box">
+                    <h2 class="section-title">Education</h2>
+                    <div class="item">
+                        <div class="item-title" style="color:var(--text-main);">B.S. in Business Administration</div>
+                        <div class="item-subtitle" style="font-size: 8pt;">Universidad Gran Mariscal de Ayacucho</div>
+                        <div class="item-date">2004 - 2009</div>
+                    </div>
+                </section>
+                
+                <section class="bento-box" style="margin-top: auto;">
+                    <h2 class="section-title">Languages</h2>
+                    <ul class="skills-list">
+                        <li>English (Technical / Functional)</li>
+                        <li>Spanish (Native)</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- RIGHT COLUMN (Work Experience) -->
+            <div class="col-right">
+                <section class="bento-box" style="flex-grow: 1;">
+                    <h2 class="section-title">Work Experience</h2>
+                    
+                    <div class="item">
+                        <div class="item-header">
+                            <div class="item-title">Project &amp; Operations Lead</div>
+                            <div class="item-date">05/2019 - Present</div>
+                        </div>
+                        <div class="item-subtitle">Seguridad Única | Buenos Aires</div>
+                        <div class="item-desc">
+                            <strong>Monitoring Center:</strong> Planning, procurement and installation of infrastructure for a 48-monitor videowall capable of controlling 900+ cameras and alarm systems. Development of critical contingency plans.<br><br>
+                            <strong>National Expansion (Iglesia Universal):</strong> Coordinated CCTV and access control deployment across 80+ branches, integrating them into the main monitoring center and training operators under strict emergency protocols.<br><br>
+                            <strong>Perimeter Security for Private Communities:</strong> Design and execution of security solutions for high-end residential developments (El Aromo, Santa Teresa, Vila Vela, etc.) and long-term maintenance plans.
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-header">
+                            <div class="item-title">Installation &amp; Maintenance Technician</div>
+                            <div class="item-date">03/2018 - 04/2019</div>
+                        </div>
+                        <div class="item-subtitle">Defco | Buenos Aires</div>
+                        <div class="item-desc">
+                            IP camera implementation for large corporations (Papelera de la Plata). Permit management, security supervision, client requirement handling and daily reporting.
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-header">
+                            <div class="item-title">Installation Technician &amp; Programmer</div>
+                            <div class="item-date">05/2017 - 02/2018</div>
+                        </div>
+                        <div class="item-subtitle">Sistemas Tecnológicos | Buenos Aires</div>
+                        <div class="item-desc">
+                            Regional lead for South America (excluding Brazil). Installation and configuration of automated beverage dispensing systems ('Pour My Beer'), with US-backed strategic market positioning planning.
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
