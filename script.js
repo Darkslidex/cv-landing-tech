@@ -139,8 +139,8 @@ function restartTypewriter(lang) {
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- Language toggle: initial active state --- */
-    document.getElementById('lang-es').classList.add('active');
+    /* --- Apply default language on load so translations.es is always the source of truth --- */
+    applyLang('es');
 
     /* --- Language toggle --- */
     document.getElementById('lang-toggle').addEventListener('click', () => {
