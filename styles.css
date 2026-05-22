@@ -513,3 +513,184 @@ a { color: inherit; text-decoration: none; }
     .pipeline-flow { grid-template-columns: 1fr; gap: 16px; }
     .pipe-step:not(:last-child)::after { display: none; }
 }
+
+/* =========================================================================
+   Easter egg — Industrial mode portal
+   ========================================================================= */
+
+/* Hero name: tap target + sibling feedback positioned absolutely */
+.hero-name-wrap {
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    margin-bottom: 0; /* el wrapper se encarga del espacio inferior */
+    touch-action: manipulation; /* mobile: sin delay 300ms, sin zoom por doble-tap */
+}
+
+.tap-feedback {
+    position: absolute;
+    top: 0.45em;
+    left: calc(100% + 22px);
+    font-family: var(--display);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.tap-feedback.visible {
+    opacity: 0.85;
+    transform: translateY(0);
+}
+
+/* Footer: dot portal */
+.footer-right {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.industrial-dot {
+    /* Visual: 8px terracotta dot */
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border: 0;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.55;
+    position: relative;
+    /* Tap target: 44px hit area via box-shadow trick (not used) — use ::before */
+    transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.industrial-dot::before {
+    /* Invisible 44x44px tap area for accessibility (WCAG 2.1 Touch Target Size) */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
+}
+
+.industrial-dot::after {
+    /* Tooltip — desktop only on hover */
+    content: attr(data-tooltip-en);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    right: 50%;
+    transform: translateX(50%);
+    background: var(--bg-elevated);
+    color: var(--text-soft);
+    font-family: var(--display);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+html[lang="es"] .industrial-dot::after {
+    content: attr(data-tooltip-es);
+}
+
+.industrial-dot:hover,
+.industrial-dot:focus-visible {
+    opacity: 1;
+    transform: scale(1.25);
+    box-shadow: 0 0 0 6px rgba(217, 119, 87, 0.12);
+    outline: none;
+}
+
+.industrial-dot:hover::after,
+.industrial-dot:focus-visible::after {
+    opacity: 1;
+    transform: translateX(50%) translateY(-2px);
+}
+
+.industrial-dot.armed {
+    /* Visual pulse for keyboard activation */
+    animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50%      { opacity: 1;    transform: scale(1.3); }
+}
+
+/* Industrial overlay (transition) */
+#industrial-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.32s ease, visibility 0.32s;
+}
+
+#industrial-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    color: var(--text);
+    text-align: center;
+    padding: 0 24px;
+    letter-spacing: -0.01em;
+    transform: translateY(8px);
+    opacity: 0;
+    transition: opacity 0.5s ease 0.1s, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+#industrial-overlay.active .overlay-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile: tap feedback se reposiciona debajo del nombre */
+@media (max-width: 720px) {
+    .tap-feedback {
+        top: auto;
+        left: 0;
+        bottom: -1.4em;
+        font-size: 0.78rem;
+    }
+    .footer-right { gap: 16px; }
+    .industrial-dot { width: 9px; height: 9px; opacity: 0.6; }
+    .industrial-dot::after {
+        font-size: 0.68rem;
+        padding: 5px 9px;
+    }
+}
+
+@media (hover: none) {
+    /* Touch devices: hide hover tooltip, JS toggles a .show class on tap */
+    .industrial-dot::after { transition: opacity 0.22s ease; }
+    .industrial-dot.show-tip::after { opacity: 1; }
+}
+

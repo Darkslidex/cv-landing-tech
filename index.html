@@ -40,7 +40,10 @@
         <header class="hero">
             <div class="hero-eyebrow" data-i18n="hero-eyebrow">Buenos Aires · Remote-friendly</div>
 
-            <h1 class="hero-title">Félix Lezama<br>Mendoza</h1>
+            <div class="hero-name-wrap">
+                <h1 class="hero-title" id="hero-name" data-tap-target="industrial">Félix Lezama<br>Mendoza</h1>
+                <span class="tap-feedback" id="tap-feedback" aria-live="polite"></span>
+            </div>
 
             <p class="hero-role" data-i18n="hero-role">Analytics Engineer<span class="sep">·</span>BI Developer</p>
 
@@ -185,9 +188,27 @@
              ============================================================ -->
         <footer class="site-footer">
             <span data-i18n="footer-loc">Buenos Aires, Argentina</span>
-            <span><a href="mailto:felixlezamam@gmail.com">felixlezamam@gmail.com</a></span>
+            <span class="footer-right">
+                <a href="mailto:felixlezamam@gmail.com">felixlezamam@gmail.com</a>
+                <button
+                    type="button"
+                    id="industrial-portal"
+                    class="industrial-dot"
+                    aria-label="Open archive version"
+                    data-i18n-aria="industrial-aria"
+                    data-tooltip-en="another version"
+                    data-tooltip-es="otra versión"
+                ></button>
+            </span>
         </footer>
 
+    </div>
+
+    <!-- ============================================================
+         Industrial transition overlay (hidden until triggered)
+         ============================================================ -->
+    <div id="industrial-overlay" aria-hidden="true">
+        <p class="overlay-text" data-i18n="overlay-text">Same Félix. Earlier draft.</p>
     </div>
 
     <!-- Custom JS -->

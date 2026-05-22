@@ -42,6 +42,10 @@ const translations = {
 
         'sec3-eyebrow':    'The Bridge',
         'footer-loc':      'Buenos Aires, Argentina',
+
+        'tap-counter':     '{n} more...',
+        'overlay-text':    'Same F&eacute;lix. Earlier draft.',
+        'industrial-aria': 'Open archive version',
     },
     es: {
         'hero-eyebrow':    'Buenos Aires &middot; Disponible remoto',
@@ -83,6 +87,10 @@ const translations = {
 
         'sec3-eyebrow':    'El Puente',
         'footer-loc':      'Buenos Aires, Argentina',
+
+        'tap-counter':     '{n} m&aacute;s...',
+        'overlay-text':    'Mismo F&eacute;lix. Versi&oacute;n anterior.',
+        'industrial-aria': 'Abrir versi&oacute;n de archivo',
     }
 };
 
@@ -105,6 +113,13 @@ function applyLang(lang) {
         }
     });
 
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.getAttribute('data-i18n-aria');
+        if (translations[lang][key] !== undefined) {
+            el.setAttribute('aria-label', translations[lang][key]);
+        }
+    });
+
     document.documentElement.lang = lang;
 
     document.getElementById('lang-en').classList.toggle('active', lang === 'en');
@@ -119,6 +134,109 @@ function applyLang(lang) {
     }
 
     currentLang = lang;
+}
+
+/* ============================================================
+   Industrial mode portal — accessible easter egg
+   Two redundant paths so any visitor can find it:
+     A. Click the terracotta dot in the footer
+     B. Tap 5 times on the hero name (Android-style)
+   ============================================================ */
+function triggerIndustrial() {
+    const overlay = document.getElementById('industrial-overlay');
+    if (!overlay) {
+        window.location.href = 'industrial.html';
+        return;
+    }
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    setTimeout(() => {
+        window.location.href = 'industrial.html';
+    }, 1300);
+}
+
+function initIndustrialPortal() {
+    /* --- Path A: click the dot in footer --- */
+    const dot = document.getElementById('industrial-portal');
+    if (dot) {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            triggerIndustrial();
+        });
+
+        /* Touch devices: tap once → show tooltip, tap again within 2.5s → trigger */
+        let touchTipShown = false;
+        let touchTipTimer = null;
+        dot.addEventListener('touchstart', (e) => {
+            if (!window.matchMedia('(hover: none)').matches) return;
+            if (!touchTipShown) {
+                e.preventDefault();
+                dot.classList.add('show-tip');
+                touchTipShown = true;
+                clearTimeout(touchTipTimer);
+                touchTipTimer = setTimeout(() => {
+                    dot.classList.remove('show-tip');
+                    touchTipShown = false;
+                }, 2500);
+            }
+        }, { passive: false });
+    }
+
+    /* --- Path B: 5 taps on the hero name (Android-style) --- */
+    const heroName = document.getElementById('hero-name');
+    const feedback = document.getElementById('tap-feedback');
+    if (!heroName || !feedback) return;
+
+    let tapCount = 0;
+    let tapTimer = null;
+    const TAP_RESET_MS = 1500;
+    const TAPS_REQUIRED = 5;
+
+    function showFeedback(text) {
+        feedback.innerHTML = text;
+        feedback.classList.add('visible');
+        clearTimeout(feedback._hideTimer);
+        feedback._hideTimer = setTimeout(() => {
+            feedback.classList.remove('visible');
+        }, 1400);
+    }
+
+    function resetTapCount() {
+        tapCount = 0;
+        clearTimeout(tapTimer);
+    }
+
+    /* Prevent the browser's auto-select-word/line behavior on double/triple
+       click so that fast consecutive clicks still count as taps.
+       Slow clicks (e.detail === 1) preserve normal behavior — and a real
+       text drag (mousedown + mousemove) still selects, because we only
+       preventDefault on the *secondary* click of a sequence. */
+    heroName.addEventListener('mousedown', (e) => {
+        if (e.detail > 1) e.preventDefault();
+    });
+
+    function handleTap() {
+        /* Wipe any selection the browser might have created before we counted */
+        try {
+            const sel = window.getSelection();
+            if (sel && sel.rangeCount > 0) sel.removeAllRanges();
+        } catch (err) {}
+
+        tapCount++;
+        clearTimeout(tapTimer);
+        tapTimer = setTimeout(resetTapCount, TAP_RESET_MS);
+
+        if (tapCount >= TAPS_REQUIRED) {
+            resetTapCount();
+            triggerIndustrial();
+        } else {
+            const remaining = TAPS_REQUIRED - tapCount;
+            const tpl = translations[currentLang]['tap-counter'] || '{n} more...';
+            showFeedback(tpl.replace('{n}', remaining));
+        }
+    }
+
+    heroName.addEventListener('click', handleTap);
 }
 
 /* ============================================================
@@ -180,4 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.4 });
         observer.observe(bridgeBody);
     }
+
+    initIndustrialPortal();
 });
