@@ -1,371 +1,515 @@
+/* =========================================================================
+   Editorial Dark Claude — Félix Lezama portfolio
+   Palette inspired by Anthropic dark mode (warm dark + cream + terracotta)
+   ========================================================================= */
+
 :root {
-    --bg-main: #020202;
-    --surface-dark: #0D0D0D;
-    --accent-orange: #FF6B2B;
-    --accent-blue: #3B82F6;
-    --text-primary: #F0F0F0;
-    --text-muted: #888888;
-    --border-color: rgba(255, 255, 255, 0.08);
+    /* Surfaces */
+    --bg: #1A1916;
+    --bg-elevated: #22211D;
+
+    /* Text */
+    --text: #FAF9F5;
+    --text-soft: #B0AEA5;
+    --text-faint: #6F6D66;
+
+    /* Accent (single, terracotta) */
+    --accent: #D97757;
+    --accent-soft: rgba(217, 119, 87, 0.16);
+
+    /* Lines */
+    --line: rgba(176, 174, 165, 0.18);
+    --line-strong: rgba(176, 174, 165, 0.32);
+
+    /* Type */
+    --display: 'Space Grotesk', system-ui, sans-serif;
+    --serif: 'Newsreader', 'Source Serif 4', Georgia, serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
-    font-family: 'Space Grotesk', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
+::selection { background: var(--accent-soft); color: var(--text); }
+
+a { color: inherit; text-decoration: none; }
+
+/* =========================================================================
+   Container — single editorial column
+   ========================================================================= */
 .container {
-    max-width: 1300px;
+    max-width: 720px;
     margin: 0 auto;
-    padding: 0 5%;
+    padding: 0 28px;
 }
 
-/* ================== HERO ================== */
+/* =========================================================================
+   Hero
+   ========================================================================= */
 .hero {
-    padding: 100px 0 60px;
+    padding: 128px 0 88px;
+}
+
+.hero-eyebrow {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
 }
 
 .hero-title {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 900;
+    font-family: var(--display);
+    font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+    font-weight: 600;
     line-height: 1.05;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-    background: linear-gradient(180deg, #FFFFFF 0%, #888888 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.hero-role {
+    font-family: var(--display);
+    font-size: clamp(1.15rem, 2.1vw, 1.35rem);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--text);
+    margin-bottom: 28px;
+}
+
+.hero-role .sep {
+    color: var(--accent);
+    margin: 0 0.5em;
+    font-weight: 400;
 }
 
 .hero-subtitle {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-family: var(--serif);
+    font-size: 1.15rem;
     font-weight: 400;
-    color: var(--text-muted);
-    max-width: 800px;
-    margin-bottom: 40px;
+    line-height: 1.55;
+    color: var(--text-soft);
+    max-width: 620px;
+    margin-bottom: 48px;
 }
 
-/* CTA Buttons */
+.hero-subtitle b {
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* =========================================================================
+   Hero CTAs — single primary + ghost links
+   ========================================================================= */
 .hero-cta {
     display: flex;
-    gap: 16px;
     align-items: center;
+    gap: 28px;
     flex-wrap: wrap;
+    font-family: var(--display);
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 14px 28px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.95rem;
-    font-weight: 700;
     text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .btn-primary {
-    background: var(--text-primary);
-    color: var(--bg-main);
-    border: 1px solid var(--text-primary);
+    background: var(--accent);
+    color: var(--bg);
+    padding: 12px 22px;
+    border-radius: 4px;
+    font-weight: 600;
 }
 
 .btn-primary:hover {
-    background: transparent;
-    color: var(--text-primary);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    background: #C6694C;
+    color: var(--bg);
 }
 
-.btn-secondary {
-    background: transparent;
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
+.btn-ghost {
+    color: var(--text-soft);
+    padding: 12px 0;
+    border-bottom: 1px solid transparent;
 }
 
-.btn-secondary:hover {
-    border-color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.05);
+.btn-ghost:hover {
+    color: var(--text);
+    border-bottom-color: var(--text);
 }
 
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-muted);
-    transition: 0.3s ease;
+.btn svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 1.75;
+    flex-shrink: 0;
 }
 
-.social-icon:hover {
-    color: var(--text-primary);
-    border-color: var(--text-primary);
-    background: rgba(255,255,255,0.05);
-}
-
-/* ================== BENTO GRID ================== */
-.bento-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 24px;
-    padding-bottom: 100px;
-}
-
-.bento-card {
-    background-color: var(--surface-dark);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 40px;
+/* =========================================================================
+   Section structure
+   ========================================================================= */
+.section {
+    padding: 80px 0;
     position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.bento-card:hover {
-    transform: translateY(-4px);
+.section + .section {
+    border-top: 1px solid var(--line);
 }
 
-.card-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 8px;
+.section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.section-eyebrow {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+}
+
+.section-eyebrow .num {
+    color: var(--accent);
+    margin-right: 0.5em;
+}
+
+.section-meta {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    letter-spacing: 0.02em;
+}
+
+.section-title {
+    font-family: var(--display);
+    font-size: clamp(1.65rem, 3vw, 2.1rem);
+    font-weight: 600;
     line-height: 1.2;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    margin-bottom: 24px;
+    max-width: 620px;
 }
 
-.card-subtitle {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    color: var(--accent-orange);
-    margin-bottom: 30px;
-}
-
-/* Specific Cards Setup */
-.card-left {
-    grid-column: 1 / 2;
-}
-
-.card-center {
-    grid-column: 2 / 4;
-}
-
-.card-bottom {
-    grid-column: 1 / 4;
-}
-
-/* Glow effects inside cards */
-.card-glow {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.glow-orange {
-    background: radial-gradient(circle at 80% 20%, rgba(255, 107, 43, 0.07) 0%, transparent 40%);
-}
-
-.glow-blue {
-    background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.07) 0%, transparent 40%);
-}
-
-/* Content Lists */
-.card-content h4 {
+.section-lede {
+    font-family: var(--serif);
     font-size: 1.1rem;
-    font-weight: 700;
-    color: #FFF;
+    line-height: 1.6;
+    color: var(--text-soft);
+    margin-bottom: 48px;
+    max-width: 620px;
+}
+
+.section-lede em {
+    font-style: italic;
+    color: var(--text);
+}
+
+/* =========================================================================
+   Metrics grid — anchors of credibility (sec. 1)
+   ========================================================================= */
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin: 8px 0 8px;
+}
+
+.metric {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+}
+
+.metric-num {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.metric-label {
+    font-family: var(--display);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    line-height: 1.35;
+}
+
+/* =========================================================================
+   Pipeline diagram (sec. 2) — typographic, not boxed
+   ========================================================================= */
+.pipeline {
+    margin: 8px 0 40px;
+    padding: 28px 0 32px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.pipeline-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.pipe-step {
+    text-align: center;
+    position: relative;
+}
+
+.pipe-step .name {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    display: block;
     margin-bottom: 6px;
 }
 
-.card-content p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
+.pipe-step .detail {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-soft);
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    display: block;
 }
 
-.item {
-    margin-bottom: 24px;
-    position: relative;
-    z-index: 2;
-}
-.item:last-child { margin-bottom: 0; }
-
-/* El Laboratorio - List Layout */
-.lab-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    position: relative;
-    z-index: 2;
-}
-
-.lab-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-}
-
-.lab-bullet {
-    width: 8px;
-    height: 8px;
-    background: var(--text-muted);
-    border-radius: 50%;
-    margin-top: 8px;
-    flex-shrink: 0;
-    transition: background 0.3s;
-}
-
-.lab-item:hover .lab-bullet {
-    background: var(--accent-blue);
-    box-shadow: 0 0 10px var(--accent-blue);
-}
-
-/* Hover Interactivity (Code Reveal) */
-.glass-card {
-    backdrop-filter: blur(10px);
-    background-color: rgba(13, 13, 13, 0.85);
-}
-
-.glass-card:hover {
-    border-color: rgba(59, 130, 246, 0.3); /* Blue subtle glow */
-}
-
-.card-left:hover {
-    border-color: rgba(255, 107, 43, 0.3); /* Orange subtle glow */
-}
-
-/* Removido el code-bg a petición del usuario para mejor legibilidad */
-
-/* El Puente Terminal Design */
-.terminal-card {
-    background-color: #050505;
-    border: 1px solid #222;
-    padding: 0;
-}
-
-.terminal-header {
-    background-color: #111;
-    padding: 12px 20px;
-    border-bottom: 1px solid #222;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
-.dot.close { background-color: #FF5F56; }
-.dot.min { background-color: #FFBD2E; }
-.dot.max { background-color: #27C93F; }
-
-.terminal-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    color: #666;
-    margin-left: 12px;
-}
-
-.terminal-body {
-    padding: 40px;
-    font-family: 'JetBrains Mono', monospace;
+.pipe-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    color: var(--accent);
+    font-family: var(--display);
     font-size: 1.1rem;
-    color: var(--text-primary);
-    line-height: 1.8;
+    line-height: 1;
 }
 
-.prompt {
-    color: var(--accent-orange);
-    margin-right: 12px;
+.pipeline-summary {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding-top: 8px;
 }
 
-.cursor {
+.pipeline-summary .strong {
+    color: var(--text);
+}
+
+.pipeline-summary .dot {
+    color: var(--text-faint);
+    margin: 0 0.6em;
+}
+
+/* =========================================================================
+   Facet list (sec. 2 sub-blocks: 4 facets of ESAB)
+   ========================================================================= */
+.facets {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.facet {
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 32px;
+    align-items: baseline;
+}
+
+.facet:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.facet-title {
+    font-family: var(--display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.005em;
+}
+
+.facet-body {
+    font-family: var(--serif);
+    font-size: 1.0rem;
+    line-height: 1.6;
+    color: var(--text-soft);
+}
+
+/* =========================================================================
+   Sec. 3 — The Bridge (typewriter, no terminal chrome)
+   ========================================================================= */
+.bridge-body {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    line-height: 1.5;
+    color: var(--text);
+    max-width: 640px;
+    min-height: 8.5em;
+}
+
+.bridge-body .cursor {
     display: inline-block;
-    width: 10px;
-    background-color: var(--text-primary);
-    animation: blink 1s step-end infinite;
+    width: 2px;
+    height: 1.05em;
+    background: var(--accent);
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    animation: blink 1.05s steps(2, start) infinite;
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
 }
 
-.hidden-text {
-    display: none;
+.hidden-text { display: none; }
+
+/* =========================================================================
+   Footer
+   ========================================================================= */
+.site-footer {
+    padding: 64px 0 96px;
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+    font-family: var(--display);
+    font-size: 0.82rem;
+    color: var(--text-faint);
+    letter-spacing: 0.02em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
-/* ================== LANG TOGGLE ================== */
+.site-footer a {
+    color: var(--text-soft);
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+.site-footer a:hover {
+    color: var(--text);
+    border-bottom-color: var(--text);
+}
+
+/* =========================================================================
+   Language toggle — top-right, Claude pill style
+   ========================================================================= */
 #lang-toggle {
     position: fixed;
-    top: 20px;
+    top: 22px;
     right: 24px;
     z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: #1c1c1c;
-    border: 1px solid #444;
+    gap: 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
     border-radius: 999px;
-    padding: 9px 18px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    padding: 6px 4px;
+    font-family: var(--display);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
     cursor: pointer;
     user-select: none;
-    color: #888;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s;
 }
 
-#lang-toggle:hover {
-    border-color: #888;
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
-}
+#lang-toggle:hover { border-color: var(--line-strong); }
 
-#lang-toggle svg {
-    color: #666;
-    flex-shrink: 0;
-}
+#lang-toggle svg { display: none; }
 
 .lang-opt {
-    color: #555;
-    transition: color 0.2s;
+    color: var(--text-faint);
+    padding: 4px 10px;
+    border-radius: 999px;
+    transition: color 0.2s, background 0.2s;
 }
 
 .lang-opt.active {
-    color: #f0f0f0;
+    color: var(--bg);
+    background: var(--text);
 }
 
-.lang-divider {
-    color: #333;
-    font-weight: 400;
+.lang-divider { display: none; }
+
+/* =========================================================================
+   Responsive
+   ========================================================================= */
+@media (max-width: 720px) {
+    .container { padding: 0 22px; }
+    .hero { padding: 96px 0 64px; }
+    .section { padding: 64px 0; }
+
+    .metrics { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .pipeline-flow { grid-template-columns: 1fr 1fr; gap: 24px 12px; }
+    .pipe-step:nth-child(2)::after { display: none; }
+    .pipe-step:nth-child(3)::after { display: none; }
+
+    .facet { grid-template-columns: 1fr; gap: 8px; }
+    .facet-title { font-size: 1rem; }
+
+    .hero-cta { gap: 20px; row-gap: 16px; }
+    .btn-ghost { padding: 8px 0; }
+
+    .section-head { gap: 8px; }
+    #lang-toggle { top: 14px; right: 14px; }
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .bento-grid {
-        grid-template-columns: 1fr;
-    }
-    .card-left, .card-center, .card-bottom {
-        grid-column: 1 / -1;
-    }
+@media (max-width: 440px) {
+    .pipeline-flow { grid-template-columns: 1fr; gap: 16px; }
+    .pipe-step:not(:last-child)::after { display: none; }
 }
