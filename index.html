@@ -1,161 +1,217 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Félix Lezama — Automation & AI Developer | Security Domain Expert</title>
+    <title>Félix Lezama — Analytics Engineer · BI Developer</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Portfolio de Félix Lezama Mendoza. Administrador, Especialista en Seguridad y Desarrollador de IA.">
+    <meta name="description" content="Analytics Engineer · BI Developer. Twenty years operating critical industrial infrastructure. Production data pipelines on Power BI, Python, n8n, SQL.">
 
     <!-- Open Graph -->
     <meta property="og:image" content="https://micv.techcam.com.ar/preview.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:title" content="Félix Lezama — AI Automation Specialist">
-    <meta property="og:description" content="20 años en infraestructura crítica + automatización con IA. Python · n8n · Power BI · Remote-ready.">
+    <meta property="og:title" content="Félix Lezama — Analytics Engineer · BI Developer">
+    <meta property="og:description" content="Analytics Engineer · BI Developer. Twenty years operating critical industrial infrastructure. Production data pipelines on Power BI, Python, n8n, SQL.">
 
-    <!-- Google Fonts -->
+    <!-- Fonts: Space Grotesk (display) + Newsreader (serif body) + JetBrains Mono (numeric/data) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
     <!-- Language Toggle -->
     <button id="lang-toggle" aria-label="Switch language">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <span class="lang-opt" id="lang-es">ES</span>
-        <span class="lang-divider">|</span>
         <span class="lang-opt" id="lang-en">EN</span>
+        <span class="lang-divider">|</span>
+        <span class="lang-opt" id="lang-es">ES</span>
     </button>
 
     <div class="container">
 
-        <!-- Hero Section -->
+        <!-- ============================================================
+             Hero
+             ============================================================ -->
         <header class="hero">
-            <h1 class="hero-title">FÉLIX LEZAMA<br>MENDOZA</h1>
-            <h2 class="hero-subtitle" data-i18n="hero-subtitle">Administrador por formación | Especialista en Seguridad por trayectoria | Desarrollador de IA por convicción.</h2>
+            <div class="hero-eyebrow" data-i18n="hero-eyebrow">Buenos Aires · Remote-friendly</div>
 
-            <div class="hero-cta">
-                <a href="https://www.linkedin.com/in/felix-lezama" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                    <span data-i18n="btn-linkedin">Conectar en LinkedIn</span>
-                </a>
-                <a href="mailto:felixlezamam@gmail.com" class="btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    <span data-i18n="btn-email">Escríbeme</span>
-                </a>
-                <a href="viewer.html" data-href-es="viewer.html" data-href-en="viewer_en.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" title="Ver Currículum Clásico">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    <span data-i18n="btn-cv">Ver CV Clásico</span>
-                </a>
-                <a href="https://github.com/Darkslidex" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    <span data-i18n="btn-github">Ver GitHub</span>
-                </a>
+            <div class="hero-name-wrap">
+                <h1 class="hero-title" id="hero-name" data-tap-target="industrial">Félix Lezama<br>Mendoza</h1>
+                <span class="tap-feedback" id="tap-feedback" aria-live="polite"></span>
             </div>
+
+            <p class="hero-role" data-i18n="hero-role">Analytics Engineer<span class="sep">·</span>BI Developer</p>
+
+            <p class="hero-subtitle" data-i18n="hero-subtitle">
+                Three production <b>n8n workflows</b>. Fifteen quality validations.
+                <b>4,709 daily records</b> processed. An IMAP&nbsp;→&nbsp;Power BI pipeline
+                for a European industrial multinational.
+            </p>
+
+            <nav class="hero-cta">
+                <a href="https://www.linkedin.com/in/felix-lezama" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    <span data-i18n="btn-linkedin">Connect on LinkedIn</span>
+                </a>
+                <a href="mailto:felixlezamam@gmail.com" class="btn btn-ghost" data-i18n="btn-email">Email</a>
+                <a href="viewer.html" data-href-es="viewer.html" data-href-en="viewer_en.html" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" data-i18n="btn-cv">Curriculum (PDF)</a>
+                <a href="https://github.com/Darkslidex" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" data-i18n="btn-github">GitHub</a>
+            </nav>
         </header>
 
-        <!-- Bento Grid Layer -->
-        <main class="bento-grid">
+        <!-- ============================================================
+             Section 01 — The Foundation
+             ============================================================ -->
+        <section class="section">
+            <div class="section-head">
+                <span class="section-eyebrow"><span class="num">01</span><span data-i18n="sec1-eyebrow">The Foundation</span></span>
+                <span class="section-meta">2004 — 2024</span>
+            </div>
 
-            <!-- Block 1: El Cimiento -->
-            <section class="bento-card card-left">
-                <div class="card-glow glow-blue"></div>
-                <h3 class="card-title" data-i18n="card1-title">1. El Cimiento:<br>Gestión y Escala</h3>
-                <p class="card-subtitle" data-i18n="card1-subtitle">(Pasado y Presente)</p>
-                <div class="card-content">
-                    <div class="item">
-                        <h4 data-i18n="item1-h4">Visión de Negocio</h4>
-                        <p data-i18n="item1-p">Licenciado en Administración de Empresas con capacidad para transformar necesidades operativas en infraestructuras tecnológicas rentables.</p>
+            <h2 class="section-title" data-i18n="sec1-title">Twenty years operating critical industrial infrastructure at scale.</h2>
+
+            <p class="section-lede" data-i18n="sec1-lede">
+                The numbers below are not bullet points. They are the operations I ran &mdash;
+                the same discipline that now shows up in every data pipeline I ship.
+            </p>
+
+            <div class="metrics">
+                <div class="metric">
+                    <span class="metric-num">768</span>
+                    <span class="metric-label" data-i18n="m1-label">cameras live<br>simultaneous</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-num">900</span>
+                    <span class="metric-label" data-i18n="m2-label">IP cameras<br>managed</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-num">80</span>
+                    <span class="metric-label" data-i18n="m3-label">corporate sites<br>nationwide</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-num">20</span>
+                    <span class="metric-label" data-i18n="m4-label">years in<br>operations</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             Section 02 — The Project (ESAB)
+             ============================================================ -->
+        <section class="section">
+            <div class="section-head">
+                <span class="section-eyebrow"><span class="num">02</span><span data-i18n="sec2-eyebrow">The Project</span></span>
+                <span class="section-meta" data-i18n="sec2-meta">Sept 2025 — Present</span>
+            </div>
+
+            <h2 class="section-title">ESAB <span style="color: var(--accent);">·</span> <span data-i18n="sec2-title">Production data pipeline</span></h2>
+
+            <p class="section-lede" data-i18n="sec2-lede">
+                <em>Client: European industrial multinational, Argentine operations.</em>
+                I replaced a manual supply-chain reporting process &mdash; emails and spreadsheets &mdash;
+                with an end-to-end data pipeline that runs daily, audits itself, and alerts when it doesn't.
+            </p>
+
+            <div class="pipeline">
+                <div class="pipeline-flow">
+                    <div class="pipe-step">
+                        <span class="name">IMAP</span>
+                        <span class="detail" data-i18n="pipe1-detail">daily mail<br>ingestion</span>
                     </div>
-                    <div class="item">
-                        <h4 data-i18n="item2-h4">Gestión de Proyectos Críticos</h4>
-                        <p data-i18n="item2-p">Lideré el diseño y ejecución del Centro de Monitoreo de Seguridad Única, coordinando la visualización de más de 900 cámaras y un videowall de 48 monitores.</p>
+                    <div class="pipe-step">
+                        <span class="name">n8n</span>
+                        <span class="detail" data-i18n="pipe2-detail">3 production<br>workflows</span>
                     </div>
-                    <div class="item">
-                        <h4 data-i18n="item3-h4">Consultoría Estratégica</h4>
-                        <p data-i18n="item3-p">Especialista en seguridad perimetral para barrios privados de alta gama y grandes corporaciones, gestionando desde la auditoría técnica hasta la elaboración de pliegos licitatorios.</p>
+                    <div class="pipe-step">
+                        <span class="name">Python</span>
+                        <span class="detail" data-i18n="pipe3-detail">pandas, 15<br>validations</span>
                     </div>
-                    <div class="item">
-                        <h4 data-i18n="item4-h4">Escalabilidad</h4>
-                        <p data-i18n="item4-p">Coordiné la migración tecnológica de más de 80 sedes a nivel nacional, estandarizando procesos y optimizando costos de mantenimiento.</p>
+                    <div class="pipe-step">
+                        <span class="name">Power BI</span>
+                        <span class="detail" data-i18n="pipe4-detail">star schema,<br>DAX measures</span>
                     </div>
                 </div>
-            </section>
-
-            <!-- Block 2: El Laboratorio -->
-            <section class="bento-card card-center glass-card" id="laboratorio-card">
-                <div class="card-glow glow-orange"></div>
-
-                <div class="card-header">
-                    <h3 class="card-title" data-i18n="card2-title">2. El Laboratorio:<br>Exploración e IA</h3>
-                    <p class="card-subtitle" data-i18n="card2-subtitle">(Los últimos 8 meses)</p>
+                <div class="pipeline-summary">
+                    <span class="strong">13</span> <span data-i18n="pipe-sum-1">production issues resolved</span>
+                    <span class="dot">·</span>
+                    <span class="strong">&lt;1&nbsp;min</span> <span data-i18n="pipe-sum-2">rollback plan</span>
+                    <span class="dot">·</span>
+                    <span class="strong" data-i18n="pipe-sum-3-strong">dead-man</span> <span data-i18n="pipe-sum-3">switch active</span>
                 </div>
+            </div>
 
-                <div class="card-content lab-list">
-                    <div class="lab-item" data-tech="python">
-                        <div class="lab-bullet"></div>
-                        <div class="lab-text">
-                            <h4 data-i18n="lab1-h4">Investigación en Arquitectura (PSIM Bunker)</h4>
-                            <p data-i18n="lab1-p">Ejercicio de práctica profunda sobre Arquitectura Hexagonal en Python, diseñado para entender cómo construir sistemas de seguridad desacoplados, resilientes y escalables.</p>
-                        </div>
-                    </div>
-
-                    <div class="lab-item" data-tech="cloud">
-                        <div class="lab-bullet"></div>
-                        <div class="lab-text">
-                            <h4 data-i18n="lab2-h4">Pensamiento de Sistemas (SGAI)</h4>
-                            <p data-i18n="lab2-p">Mi proyecto más personal, donde aplico logística de administración para optimizar la gestión alimentaria en la nube, automatizando decisiones diarias mediante flujos de datos inteligentes.</p>
-                        </div>
-                    </div>
-
-                    <div class="lab-item" data-tech="etl">
-                        <div class="lab-bullet"></div>
-                        <div class="lab-text">
-                            <h4 data-i18n="lab3-h4">Automatización de Vulnerabilidades</h4>
-                            <p data-i18n="lab3-p">Desarrollo de scripts ETL experimentales para detectar fallos en dispositivos de seguridad electrónica, buscando proactivamente cerrar brechas antes de ser explotadas.</p>
-                        </div>
-                    </div>
-
-                    <div class="lab-item" data-tech="data">
-                        <div class="lab-bullet"></div>
-                        <div class="lab-text">
-                            <h4 data-i18n="lab4-h4">Inteligencia de Mercado</h4>
-                            <p data-i18n="lab4-p">Creación de un monitor autónomo de precios (Python + SQLite) integrado con Power BI, para transformar el caos de datos del mercado en tableros de decisión claros.</p>
-                        </div>
-                    </div>
+            <div class="facets">
+                <div class="facet">
+                    <div class="facet-title" data-i18n="f1-title">End-to-end architecture</div>
+                    <div class="facet-body" data-i18n="f1-body">IMAP ingestion, n8n orchestration with three production workflows (receiver, dead-man switch, error handler), Python/pandas processing on a hardened VPS, OneDrive sync, and Power BI dashboard with star-schema modeling.</div>
                 </div>
-            </section>
+                <div class="facet">
+                    <div class="facet-title" data-i18n="f2-title">Data transformation</div>
+                    <div class="facet-body" data-i18n="f2-body">Fifteen quality validations, composite-key deduplication, date normalization, automatic schema-change detection, and merge logic between historical snapshots and daily deltas.</div>
+                </div>
+                <div class="facet">
+                    <div class="facet-title" data-i18n="f3-title">Power BI dimensional model</div>
+                    <div class="facet-body" data-i18n="f3-body">Three fact tables, three dimensions, DAX measures for logistics KPIs and FX exposure. Skills equivalent to Microsoft PL-300 applied in production, not in a sandbox.</div>
+                </div>
+                <div class="facet">
+                    <div class="facet-title" data-i18n="f4-title">Operational discipline</div>
+                    <div class="facet-body" data-i18n="f4-body">Thirteen documented production issues resolved with SHA tracking, regression tests, three-layer alerting with a dead-man switch, and a sub-minute rollback plan. Hardened VPS, no external dependencies.</div>
+                </div>
+            </div>
+        </section>
 
-            <!-- Block 3: El Puente -->
-            <section class="bento-card card-bottom terminal-card">
-                <div class="terminal-header">
-                    <span class="dot close"></span>
-                    <span class="dot min"></span>
-                    <span class="dot max"></span>
-                    <span class="terminal-title" data-i18n="terminal-title">3. El Puente: ¿Hacia dónde voy?</span>
-                </div>
-                <div class="terminal-body" id="terminal-body">
-                    <span class="prompt">~ /vision $</span>
-                    <span id="typewriter-text"></span><span class="cursor">_</span>
-                </div>
-                <div class="hidden-text" id="hidden-vision-es">
-"Fusiono 20 años de experiencia en seguridad electrónica con un stack moderno de automatización e IA (Python, FastAPI, YOLO, LLMs, Docker) para construir sistemas que resuelven problemas reales de negocio. Busco roles remotos donde esa combinación genere valor desde el primer día."
-                </div>
-                <div class="hidden-text" id="hidden-vision-en">
-"I merge 20 years of electronic security expertise with a modern automation and AI stack (Python, FastAPI, YOLO, LLMs, Docker) to build systems that solve real business problems. Looking for remote roles where this combination delivers value from day one."
-                </div>
-            </section>
+        <!-- ============================================================
+             Section 03 — The Bridge
+             ============================================================ -->
+        <section class="section">
+            <div class="section-head">
+                <span class="section-eyebrow"><span class="num">03</span><span data-i18n="sec3-eyebrow">The Bridge</span></span>
+            </div>
 
-        </main>
+            <p class="bridge-body"><span id="typewriter-text"></span><span class="cursor"></span></p>
+
+            <div class="hidden-text" id="hidden-vision-es">
+"Fusiono veinte años operando proyectos industriales con un stack moderno de datos y automatización: Power BI, Python, n8n, SQL. Aplico auditoría basada en outcomes y trabajo con IA como pair-programmer, manteniendo el criterio técnico bajo mi responsabilidad. Busco roles de Analista BI o Data Analyst donde criterio de negocio y disciplina técnica generen valor desde el primer día."
+            </div>
+            <div class="hidden-text" id="hidden-vision-en">
+"I merge twenty years of industrial operations with a modern data and automation stack: Power BI, Python, n8n, SQL. I apply outcome-based auditing and work with AI as a pair-programmer, keeping technical judgment under my own responsibility. Looking for Analytics Engineer or BI Developer roles where business judgment and technical discipline deliver value from day one."
+            </div>
+        </section>
+
+        <!-- ============================================================
+             Footer
+             ============================================================ -->
+        <footer class="site-footer">
+            <span data-i18n="footer-loc">Buenos Aires, Argentina</span>
+            <span class="footer-right">
+                <a href="mailto:felixlezamam@gmail.com">felixlezamam@gmail.com</a>
+                <button
+                    type="button"
+                    id="industrial-portal"
+                    class="industrial-dot"
+                    aria-label="Open archive version"
+                    data-i18n-aria="industrial-aria"
+                    data-tooltip-en="another version"
+                    data-tooltip-es="otra versión"
+                ></button>
+            </span>
+        </footer>
+
+    </div>
+
+    <!-- ============================================================
+         Industrial transition overlay (hidden until triggered)
+         ============================================================ -->
+    <div id="industrial-overlay" aria-hidden="true">
+        <p class="overlay-text" data-i18n="overlay-text">Same Félix. Earlier draft.</p>
     </div>
 
     <!-- Custom JS -->
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>
