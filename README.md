@@ -35,40 +35,52 @@ no dispara nada.** Vive en un `docker-compose` suelto en el VPS y se despliega a
 
 Camino único del código: WSL → GitHub → VPS. Ninguna otra copia produce commits.
 
-1. Mergear a `main` y hacer push desde WSL.
-2. Desplegar en el VPS:
+Los comandos, en el orden exacto en que se ejecutan:
 
 ```bash
+# 1. Conectar al VPS
 ssh bunker
+
+# 2. Ubicarse y confirmar el estado antes de tocar nada
 cd /root/cv-landing-tech
-git status                                 # confirmar rama y estado antes de tocar nada
-git stash push -u -m 'tweaks-pre-deploy'   # solo si hay modificaciones locales sin commit
+git status
+git log --oneline -1        # anotar este hash: es el punto de rollback
+
+# 3. Traer los cambios
+git stash push -u -m 'tweaks-pre-deploy'   # SOLO si el paso 2 mostró cambios sin commit
 git pull origin main
+
+# 4. Reconstruir la imagen y levantar
 docker compose up -d --build
-docker ps | grep cv-landing                # el contenedor cv-landing-nginx debe quedar Up
+
+# 5. Verificar, en este orden
+docker ps | grep cv-landing                     # debe figurar Up
+docker exec cv-landing-nginx nginx -t           # debe decir syntax is ok / test is successful
+curl -I https://micv.techcam.com.ar/            # last-modified reciente, HTTP 200
 ```
 
-3. Validar desde afuera que el contenido nuevo está publicado:
+Si el paso 5 falla en cualquiera de las tres verificaciones, ejecutar el rollback.
+
+### Rollback
 
 ```bash
-curl -I https://micv.techcam.com.ar/       # last-modified debe ser reciente
-```
-
-### Reversión
-
-El despliegue es un checkout de `main`, así que se revierte volviendo al commit
-anterior en el VPS y reconstruyendo:
-
-```bash
+# 1. Conectar y ubicarse
 ssh bunker
 cd /root/cv-landing-tech
-git log --oneline -5
-git checkout <commit-anterior>
+
+# 2. Volver al commit anotado en el paso 2 del deploy
+git checkout <hash-anotado>
+
+# 3. Reconstruir con la versión anterior
 docker compose up -d --build
+
+# 4. Confirmar que volvió
+docker ps | grep cv-landing
+curl -I https://micv.techcam.com.ar/
 ```
 
-Para revertir de forma permanente, hacer `git revert` del commit en GitHub y
-repetir el despliegue normal.
+Para revertir de forma permanente, hacer `git revert` del commit en GitHub,
+hacer push a `main` y repetir el despliegue normal.
 
 ## Convenciones
 
