@@ -6,3 +6,9 @@ Félix*.pdf
 avatar.png
 avatar.jpg
 cv.txt
+
+# Respaldos locales: nunca se versionan ni se publican
+*.bak
+*.old
+*.orig
+*.save

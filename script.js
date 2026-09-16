@@ -413,10 +413,10 @@ function initCounters() {
     const nums = document.querySelectorAll('.metric-num[data-count]');
     if (!nums.length) return;
 
-    if (!('IntersectionObserver' in window)) {
-        nums.forEach(el => animateCounter(el, parseInt(el.dataset.count, 10)));
-        return;
-    }
+    /* El HTML ya trae el valor final: lo leen los rastreadores, los ATS y
+       quien no ejecute scripts. La animación es solo un realce encima, así
+       que se resetea a cero únicamente lo que efectivamente se va a animar. */
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
 
     const io = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
@@ -428,7 +428,10 @@ function initCounters() {
         });
     }, { threshold: 0.5 });
 
-    nums.forEach(el => io.observe(el));
+    nums.forEach(el => {
+        el.textContent = '0';
+        io.observe(el);
+    });
 }
 
 function initScrollProgress() {

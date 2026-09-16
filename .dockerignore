@@ -1,0 +1,14 @@
+# El Dockerfile copia todo el repositorio al web root de Nginx.
+# Lo que se liste aca no llega al contenedor y por lo tanto no se publica.
+*.bak
+*.old
+*.orig
+*.save
+*.swp
+.git
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+nginx.conf
+README.md
