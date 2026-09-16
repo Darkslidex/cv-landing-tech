@@ -1273,3 +1273,31 @@ html[lang="es"] .industrial-dot::after {
     #scroll-progress { display: none; }
 }
 
+
+/* ============================================================
+   Fallback sin JavaScript
+   .reveal nace en opacity 0 y solo la clase .visible — que agrega
+   el script — lo muestra. Si el script no corre, el contenido
+   tiene que verse igual. El selector lleva html delante para
+   ganarle a los overrides posteriores de .facet.reveal.
+   ============================================================ */
+html.no-js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+/* El párrafo del Puente lo escribe el typewriter, así que sin script queda
+   vacío. El texto plano ya vive en el HTML (#hidden-vision-en): se muestra
+   con el mismo estilo y se retira el párrafo animado junto con su cursor. */
+html.no-js .bridge-body { display: none; }
+
+html.no-js #hidden-vision-en {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+    line-height: 1.5;
+    color: var(--text);
+    max-width: 640px;
+}
