@@ -1025,6 +1025,24 @@ html[lang="es"] .industrial-dot::after {
 /* Three labels — only one shows at a time. data-label drives the cycle. */
 .status-label { display: none; white-space: nowrap; }
 
+/* En pantallas angostas el titular en español no entra en una sola línea y el
+   pill se cortaba contra el borde. Se permite que el texto envuelva y que el
+   pill se ajuste al ancho disponible, con el punto alineado a la primera línea. */
+@media (max-width: 560px) {
+    /* El pill se acota contra el viewport, no contra el padre: en pantallas
+       angostas el contenedor del layout ya desborda (defecto preexistente,
+       ajeno a este bloque), asi que medido contra el padre nunca encontraria
+       un limite y el texto se cortaria contra el borde en vez de envolver.
+       Los 80px absorben el padding del layout y el ancho de la barra de
+       scroll, que en algunos navegadores entra dentro de 100vw. */
+    .status-pill {
+        align-items: flex-start;
+        max-width: calc(100vw - 80px);
+    }
+    .status-label { white-space: normal; }
+    .status-pill .status-dot { margin-top: 5px; }
+}
+
 .status-pill[data-state="off"] .off-label { display: inline; }
 .status-pill[data-state="on"][data-label="on"]     .on-label     { display: inline; }
 .status-pill[data-state="on"][data-label="detail"] .detail-label { display: inline; }

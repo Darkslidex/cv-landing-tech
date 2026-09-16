@@ -63,8 +63,8 @@ const translations = {
         'p2-body':         'Lead-processing system built on <b>Claude Code Agent Teams</b>. A coordinator dispatches four specialists (enrich, qualify, draft, package) and ships approval cards to Telegram &mdash; human approves each send. ~880 emails/month at <b>~USD 30/month</b> in tokens, 80% cheaper than the previous architecture.',
 
         'status-off':      'Not available',
-        'status-on':       'NOW available!!!',
-        'status-detail':   'Open to senior BI / Analytics Engineer roles',
+        'status-on':       'Available for remote contract work',
+        'status-detail':   'US Eastern overlap · supply chain &amp; imports',
         'rail-top':        'Top',
         'rail-sec1':       'Foundation',
         'rail-sec2':       'Project',
@@ -139,8 +139,8 @@ const translations = {
         'p2-body':         'Sistema de procesamiento de leads construido sobre <b>Claude Code Agent Teams</b>. Un coordinador despacha cuatro especialistas (enriquecer, calificar, redactar, empaquetar) y manda tarjetas de aprobaci&oacute;n a Telegram &mdash; el humano aprueba cada env&iacute;o. ~880 emails/mes a <b>~USD 30/mes</b> en tokens, 80% m&aacute;s barato que la arquitectura anterior.',
 
         'status-off':      'No disponible',
-        'status-on':       '¡YA disponible!!!',
-        'status-detail':   'Abierto a roles senior de BI / Analytics Engineer',
+        'status-on':       'Disponible para posiciones remotas o híbridas en Buenos Aires',
+        'status-detail':   'Analista de Datos · BI Developer',
         'rail-top':        'Inicio',
         'rail-sec1':       'Cimiento',
         'rail-sec2':       'Proyecto',
@@ -466,24 +466,17 @@ function initStatusPill() {
     /* Reset any in-flight timers (re-entrancy: called on language change too) */
     clearStatusTimers(pill);
     pill.classList.remove('flipping', 'cycling');
-    pill.dataset.state = 'off';
+
+    /* El HTML ya nace en "on": el script no lo apaga para volver a encenderlo.
+       La animación es solo realce, igual que en las métricas. El estado "off"
+       queda disponible como conmutación manual desde el HTML. */
+    pill.dataset.state = 'on';
     pill.dataset.label = 'on';
 
-    /* Honor reduced-motion: skip the flip, go straight to "on" — no cycling */
-    if (prefersReducedMotion) {
-        pill.dataset.state = 'on';
-        return;
-    }
+    /* Honor reduced-motion: se queda en el titular, sin ciclado */
+    if (prefersReducedMotion) return;
 
-    /* Show "Not available" for ~3.5s, then flip to "NOW available!!!" */
-    pill._flipTimeout = setTimeout(() => {
-        pill.classList.add('flipping');
-        pill._innerFlip = setTimeout(() => {
-            pill.dataset.state = 'on';
-            requestAnimationFrame(() => pill.classList.remove('flipping'));
-            startStatusCycle(pill);
-        }, 280);
-    }, 3500);
+    startStatusCycle(pill);
 }
 
 function startStatusCycle(pill) {

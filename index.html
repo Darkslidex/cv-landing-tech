@@ -84,11 +84,13 @@
              Hero
              ============================================================ -->
         <header class="hero" id="hero">
-            <div class="status-pill reveal" id="status-pill" data-state="off">
+            <!-- Nace disponible: quien no ejecute scripts lee la disponibilidad real.
+                 El estado "off" queda solo como conmutación manual (data-state="off"). -->
+            <div class="status-pill reveal" id="status-pill" data-state="on" data-label="on">
                 <span class="status-dot"></span>
-                <span class="status-label off-label" data-i18n="status-off">Not looking</span>
-                <span class="status-label on-label" data-i18n="status-on">Available · Q2 2026</span>
-                <span class="status-label detail-label" data-i18n="status-detail">Open to senior BI / Analytics Engineer roles</span>
+                <span class="status-label off-label" data-i18n="status-off">Not available</span>
+                <span class="status-label on-label" data-i18n="status-on">Available for remote contract work</span>
+                <span class="status-label detail-label" data-i18n="status-detail">US Eastern overlap · supply chain &amp; imports</span>
             </div>
 
             <div class="hero-eyebrow reveal" data-i18n="hero-eyebrow">Buenos Aires · Remote-friendly</div>
