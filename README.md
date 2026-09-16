@@ -84,6 +84,13 @@ hacer push a `main` y repetir el despliegue normal.
 
 ## Convenciones
 
+- **Cada deploy que toque `styles.css` o `script.js` DEBE subir el número de
+  versión del query string** en `index.html` (`styles.css?v=N`, `script.js?v=N`),
+  y lo mismo en `industrial.html` para sus propios archivos. `nginx.conf` sirve
+  CSS y JS con `immutable` y un año de vigencia: si la URL no cambia, el
+  navegador y Cloudflare siguen entregando la versión anterior aunque el
+  archivo del servidor ya sea el nuevo. El HTML no tiene este problema porque
+  se sirve sin cachear.
 - Contenido bilingüe: los textos viven en el diccionario `translations` de
   `script.js` y se enlazan desde el HTML con `data-i18n`.
 - Sin dependencias externas nuevas: no se agregan formularios, analítica de
