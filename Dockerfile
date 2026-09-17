@@ -12,7 +12,6 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # IMPORTANTE: si se agrega un archivo nuevo al sitio, hay que sumarlo a esta
 # lista o no se publica. Si se quita uno sin sacarlo de aca, el build falla.
 COPY index.html industrial.html viewer.html viewer_en.html \
-     cv_print_en.html cv_print_full_en.html \
      styles.css styles-industrial.css \
      script.js script-industrial.js \
      favicon.svg preview.jpg \
