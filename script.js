@@ -84,7 +84,7 @@ const translations = {
         'industrial-aria': 'Open archive version',
     },
     es: {
-        'hero-eyebrow':    'Buenos Aires &middot; Disponible remoto',
+        'hero-eyebrow':    'Buenos Aires &middot; Cadena de suministro e importaciones',
         'hero-role':       'Analista BI<span class="sep">&middot;</span>Data Analyst',
         'hero-subtitle':   'Tres <b>workflows n8n en producci&oacute;n</b>. Quince validaciones de calidad. <b>4.709 filas diarias</b> procesadas. Un pipeline IMAP&nbsp;&rarr;&nbsp;Power BI para una multinacional europea industrial.',
         'btn-linkedin':    'Conectar en LinkedIn',
