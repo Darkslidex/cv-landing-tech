@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css?v=13">
+    <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
 
@@ -158,7 +158,7 @@
         </section>
 
         <!-- ============================================================
-             Section 02 — The Project (ESAB)
+             Section 02 — The Project (industrial multinational)
              ============================================================ -->
         <section class="section reveal" id="sec2">
             <div class="section-head">
@@ -166,12 +166,13 @@
                 <span class="section-meta" data-i18n="sec2-meta">Sept 2025 — Present</span>
             </div>
 
-            <h2 class="section-title">ESAB <span style="color: var(--accent);">·</span> <span data-i18n="sec2-title">Production data pipeline</span></h2>
+            <h2 class="section-title"><span data-i18n="sec2-client">Industrial multinational</span> <span style="color: var(--accent);">·</span> <span data-i18n="sec2-title">Production data pipeline</span></h2>
 
             <p class="section-lede" data-i18n="sec2-lede">
                 <em>Client: European industrial multinational, Argentine operations.</em>
-                I replaced a manual supply-chain reporting process &mdash; emails and spreadsheets &mdash;
-                with an end-to-end data pipeline that runs daily, audits itself, and alerts when it doesn't.
+                Supply-chain reporting ran on emails and spreadsheets, with someone opening attachments
+                every morning. It now runs as an end-to-end pipeline covering <b>78 suppliers across
+                7 countries</b> &mdash; it ingests, validates, audits itself, and raises an alarm when it doesn't.
             </p>
 
             <div class="pipeline">
@@ -195,9 +196,18 @@
                     <span class="flow-pulse" aria-hidden="true"></span>
                 </div>
                 <div class="pipeline-summary">
+                    <span class="strong">84&nbsp;s</span> <span data-i18n="pipe-sum-a">inbox to dashboard</span>
+                    <span class="dot">·</span>
+                    <span class="strong">78</span> <span data-i18n="pipe-sum-b">suppliers</span>
+                    <span class="dot">·</span>
+                    <span class="strong">7</span> <span data-i18n="pipe-sum-c">countries</span>
+                    <span class="dot">·</span>
+                    <span class="strong">15</span> <span data-i18n="pipe-sum-d">quality validations</span>
+                </div>
+                <div class="pipeline-summary">
                     <span class="strong">13</span> <span data-i18n="pipe-sum-1">production issues resolved</span>
                     <span class="dot">·</span>
-                    <span class="strong">&lt;1&nbsp;min</span> <span data-i18n="pipe-sum-2">rollback plan</span>
+                    <span class="strong">&lt;1&nbsp;min</span> <span data-i18n="pipe-sum-2">rollback</span>
                     <span class="dot">·</span>
                     <span class="strong" data-i18n="pipe-sum-3-strong">dead-man</span> <span data-i18n="pipe-sum-3">switch active</span>
                 </div>
@@ -206,19 +216,19 @@
             <div class="facets">
                 <div class="facet reveal">
                     <div class="facet-title" data-num="01" data-i18n="f1-title">End-to-end architecture</div>
-                    <div class="facet-body" data-i18n="f1-body">IMAP ingestion, n8n orchestration with three production workflows (receiver, dead-man switch, error handler), Python/pandas processing on a hardened VPS, OneDrive sync, and Power BI dashboard with star-schema modeling.</div>
+                    <div class="facet-body" data-i18n="f1-body">IMAP ingestion, three n8n workflows, Python/pandas on a hardened VPS, Power BI star schema.</div>
                 </div>
                 <div class="facet reveal">
                     <div class="facet-title" data-num="02" data-i18n="f2-title">Data transformation</div>
-                    <div class="facet-body" data-i18n="f2-body">Fifteen quality validations, composite-key deduplication, date normalization, automatic schema-change detection, and merge logic between historical snapshots and daily deltas.</div>
+                    <div class="facet-body" data-i18n="f2-body">Fifteen validations, composite-key deduplication, schema-change detection, historical snapshots merged with daily deltas.</div>
                 </div>
                 <div class="facet reveal">
                     <div class="facet-title" data-num="03" data-i18n="f3-title">Power BI dimensional model</div>
-                    <div class="facet-body" data-i18n="f3-body">Three fact tables, three dimensions, DAX measures for logistics KPIs and FX exposure. Skills equivalent to Microsoft PL-300 applied in production, not in a sandbox.</div>
+                    <div class="facet-body" data-i18n="f3-body">Three fact tables, three dimensions, DAX measures for logistics KPIs and FX exposure. PL-300 level, applied in production.</div>
                 </div>
                 <div class="facet reveal">
                     <div class="facet-title" data-num="04" data-i18n="f4-title">Operational discipline</div>
-                    <div class="facet-body" data-i18n="f4-body">Thirteen documented production issues resolved with SHA tracking, regression tests, three-layer alerting with a dead-man switch, and a sub-minute rollback plan. Hardened VPS, no external dependencies.</div>
+                    <div class="facet-body" data-i18n="f4-body">Thirteen documented incidents resolved, regression tests, three-layer alerting, sub-minute rollback.</div>
                 </div>
             </div>
         </section>
@@ -312,10 +322,11 @@
                     </div>
                     <h3 class="project-title" data-i18n="p1-title">Multi-vertical commercial dashboard</h3>
                     <p class="project-body" data-i18n="p1-body">
-                        B2B CRM for Seguridad Única — <b>1,500+ leads</b> across 15 industry verticals
-                        (gated communities, industrial parks, logistics, clinics). Next.js 16 + Prisma 7 + PostgreSQL,
-                        interactive map (Leaflet), and a Python enrichment pipeline that scrapes, validates emails,
-                        and geocodes leads end-to-end.
+                        A private-security company was tracking its entire commercial pipeline in spreadsheets.
+                        Today <b>1,500+ leads across 15 verticals</b> — gated communities, industrial parks,
+                        logistics, clinics — live in one system, with an enrichment pipeline that scrapes,
+                        validates emails and geocodes end to end. Next.js 16 with Prisma 7 and PostgreSQL,
+                        interactive map on Leaflet, Python enrichment.
                     </p>
                     <div class="project-meta">
                         <span class="chip-mini">Next.js 16</span>
@@ -332,12 +343,12 @@
                         <span class="project-tag" data-i18n="p2-tag">AI agent system</span>
                         <span class="project-status"><span class="status-dot small"></span><span data-i18n="p2-status">live</span></span>
                     </div>
-                    <h3 class="project-title" data-i18n="p2-title">Supervised B2B outreach with Agent Teams</h3>
+                    <h3 class="project-title" data-i18n="p2-title">Supervised B2B outreach with agent teams</h3>
                     <p class="project-body" data-i18n="p2-body">
-                        Lead-processing system built on <b>Claude Code Agent Teams</b>. A coordinator dispatches four
-                        specialists (enrich, qualify, draft, package) and ships approval cards to Telegram —
-                        human approves each send. ~880 emails/month at <b>~USD 30/month</b> in tokens, 80%
-                        cheaper than the previous architecture.
+                        Prospecting by hand doesn't scale, and unattended sending is a liability. A coordinator
+                        dispatches four specialists — enrich, qualify, draft, package — and every message waits
+                        for human approval on Telegram before it leaves. <b>~880 emails a month at ~USD 30</b>
+                        in tokens, 80% cheaper than the architecture it replaced.
                     </p>
                     <div class="project-meta">
                         <span class="chip-mini">Claude Code</span>
@@ -383,6 +394,6 @@
     </div>
 
     <!-- Custom JS -->
-    <script src="script.js?v=13"></script>
+    <script src="script.js?v=14"></script>
 </body>
 </html>
