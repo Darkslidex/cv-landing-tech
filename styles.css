@@ -1192,7 +1192,13 @@ html[lang="es"] .industrial-dot::after {
    ========================================================================= */
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    /* El minimo va envuelto en min(): auto-fit colapsa columnas pero nunca
+       achica una pista por debajo de su minimo, asi que un 420px rigido
+       obligaba a toda la pagina a medir 420px de ancho aunque la pantalla
+       fuera mas angosta, y el desborde se veia arriba, en el hero. Con
+       min(420px, 100%) la pista cede al ancho disponible y colapsa a una
+       sola columna, sin necesidad de un breakpoint nuevo. */
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
     gap: 20px;
     margin-top: 8px;
 }
