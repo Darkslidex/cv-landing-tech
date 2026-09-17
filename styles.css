@@ -1041,6 +1041,23 @@ html[lang="es"] .industrial-dot::after {
     }
     .status-label { white-space: normal; }
     .status-pill .status-dot { margin-top: 5px; }
+
+    /* El eyebrow del hero lleva la línea de dominio, que no entra en una línea
+       en pantallas angostas. Se acota igual que el pill —contra el viewport y
+       no contra el padre— porque el contenedor ya desborda y, sin esto, la
+       segunda mitad del texto queda fuera de la pantalla. */
+    .hero-eyebrow {
+        max-width: calc(100vw - 80px);
+        align-items: flex-start;
+    }
+
+    /* El titular en inglés es más largo que el anterior y quedaba 32 px fuera
+       de la pantalla. Mismo recurso: se acota contra el viewport para que
+       envuelva. La bajada NO se toca acá: ya se cortaba con el texto viejo,
+       y eso es parte del desborde preexistente del contenedor. */
+    .hero-role {
+        max-width: calc(100vw - 80px);
+    }
 }
 
 .status-pill[data-state="off"] .off-label { display: inline; }

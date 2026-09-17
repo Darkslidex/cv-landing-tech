@@ -3,9 +3,9 @@
    ============================================================ */
 const translations = {
     en: {
-        'hero-eyebrow':    'Buenos Aires &middot; Remote-friendly',
-        'hero-role':       'Analytics Engineer<span class="sep">&middot;</span>BI Developer',
-        'hero-subtitle':   'Three production <b>n8n workflows</b>. Fifteen quality validations. <b>4,709 daily records</b> processed. An IMAP&nbsp;&rarr;&nbsp;Power BI pipeline for a European industrial multinational.',
+        'hero-eyebrow':    'Buenos Aires &middot; Supply chain, imports &amp; foreign trade',
+        'hero-role':       'AI Workflow &amp; Data Automation Engineer',
+        'hero-subtitle':   'Production systems, not prototypes. For a European industrial multinational I built and operate an inbox&nbsp;&rarr;&nbsp;Power BI pipeline: <b>78 suppliers</b>, <b>7 countries</b>, <b>84 seconds</b> end to end, 15 quality validations. It runs unattended every business day. Independent contractor, invoicing from Argentina.',
         'btn-linkedin':    'Connect on LinkedIn',
         'btn-email':       'Email',
         'btn-cv':          'Curriculum (PDF)',
