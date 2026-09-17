@@ -85,8 +85,8 @@ const translations = {
     },
     es: {
         'hero-eyebrow':    'Buenos Aires &middot; Cadena de suministro e importaciones',
-        'hero-role':       'Analista BI<span class="sep">&middot;</span>Data Analyst',
-        'hero-subtitle':   'Tres <b>workflows n8n en producci&oacute;n</b>. Quince validaciones de calidad. <b>4.709 filas diarias</b> procesadas. Un pipeline IMAP&nbsp;&rarr;&nbsp;Power BI para una multinacional europea industrial.',
+        'hero-role':       'Analista de Datos<span class="sep">&middot;</span>BI Developer',
+        'hero-subtitle':   'Sistemas en producci&oacute;n, no prototipos. Para una multinacional industrial europea constru&iacute; y opero un pipeline correo&nbsp;&rarr;&nbsp;Power BI: <b>78 proveedores</b>, <b>7 pa&iacute;ses</b>, <b>84 segundos</b> de punta a punta, 15 validaciones de calidad. Corre solo todos los d&iacute;as h&aacute;biles.',
         'btn-linkedin':    'Conectar en LinkedIn',
         'btn-email':       'Email',
         'btn-cv':          'Curr&iacute;culum (PDF)',
@@ -150,7 +150,7 @@ const translations = {
 
         'status-off':      'No disponible',
         'status-on':       'Disponible para posiciones remotas o híbridas en Buenos Aires',
-        'status-detail':   'Analista de Datos · BI Developer',
+        'status-detail':   '',
         'rail-top':        'Inicio',
         'rail-sec1':       'Cimiento',
         'rail-sec2':       'Proyecto',
@@ -209,9 +209,9 @@ function applyLang(lang) {
 
     currentLang = lang;
 
-    /* Restart the status pill so the user sees "Not available / No disponible"
-       in the new language and the whole cycle replays from scratch. Safe to
-       call before the rest of init runs because initStatusPill is idempotent. */
+    /* Reinicia el pill en el idioma nuevo: vuelve al titular y, si ese idioma
+       tiene un segundo texto, retoma el ciclado desde cero. Es seguro llamarlo
+       antes del resto del init porque initStatusPill es idempotente. */
     if (document.readyState !== 'loading' && document.getElementById('status-pill')) {
         initStatusPill();
     }
@@ -485,6 +485,12 @@ function initStatusPill() {
 
     /* Honor reduced-motion: se queda en el titular, sin ciclado */
     if (prefersReducedMotion) return;
+
+    /* Solo alterna si el idioma activo tiene un segundo texto propio. En
+       español queda fijo: el eyebrow ya muestra el dominio y el titular el rol,
+       y el pill no repite lo que ya está visible (D-16). */
+    const detalle = (translations[currentLang] || {})['status-detail'];
+    if (!detalle) return;
 
     startStatusCycle(pill);
 }
